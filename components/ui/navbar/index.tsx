@@ -1,18 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { Disclosure } from '@headlessui/react';
-import { MenuIcon, XIcon } from '@heroicons/react/outline';
-import { useAccount, useNetwork } from '@hooks/web3';
-import ActiveLink from '../link';
-import Walletbar from './Walletbar';
+import { Disclosure } from "@headlessui/react";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { useAccount, useNetwork } from "@hooks/web3";
+import ActiveLink from "../link";
+import Walletbar from "./Walletbar";
 
 const navigation = [
-  { name: 'Marketplace', href: '/', current: true },
-  { name: 'Create', href: '/nft/create', current: false }
-]
+  { name: "Marketplace", href: "/", current: true },
+  { name: "Create", href: "/nft/create", current: false },
+];
 
 function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function Navbar() {
@@ -47,7 +47,7 @@ export default function Navbar() {
                       >
                         <a
                           className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                          aria-current={item.current ? 'page' : undefined}
+                          aria-current={item.current ? "page" : undefined}
                         >
                           {item.name}
                         </a>
@@ -59,23 +59,28 @@ export default function Navbar() {
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <div className="text-gray-300 self-center mr-2">
                   <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-purple-100 text-purple-800">
-                    <svg className="-ml-0.5 mr-1.5 h-2 w-2 text-indigo-400" fill="currentColor" viewBox="0 0 8 8">
+                    <svg
+                      className="-ml-0.5 mr-1.5 h-2 w-2 text-indigo-400"
+                      fill="currentColor"
+                      viewBox="0 0 8 8"
+                    >
                       <circle cx={4} cy={4} r={3} />
                     </svg>
-                    { network.isLoading ?
-                      "Loading..." :
-                      account.isInstalled ?
-                      network.data :
-                      "Install Web3 Wallet"
-                    }
+                    {network.isLoading
+                      ? "Loading..."
+                      : account.isInstalled
+                      ? network.data
+                      : "Install Web3 Wallet"}
                   </span>
                 </div>
-                <Walletbar
-                  isInstalled={account.isInstalled}
-                  isLoading={account.isLoading}
-                  connect={account.connect}
-                  account={account.data}
-                />
+                {account ? (
+                  <Walletbar
+                    isInstalled={account.isInstalled}
+                    isLoading={account.isLoading}
+                    connect={account.connect}
+                    account={account.data}
+                  />
+                ) : null}
               </div>
             </div>
           </div>
@@ -88,10 +93,12 @@ export default function Navbar() {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
+                    item.current
+                      ? "bg-gray-900 text-white"
+                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                    "block px-3 py-2 rounded-md text-base font-medium"
                   )}
-                  aria-current={item.current ? 'page' : undefined}
+                  aria-current={item.current ? "page" : undefined}
                 >
                   {item.name}
                 </Disclosure.Button>
@@ -101,5 +108,5 @@ export default function Navbar() {
         </>
       )}
     </Disclosure>
-  )
+  );
 }

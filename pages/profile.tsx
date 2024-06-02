@@ -60,7 +60,6 @@ const Profile: NextPage = () => {
                     </div>
                   </div>
                 </div>
-                        {console.log("nfts123123", nfts)}
                 <section className="mt-8 pb-16" aria-labelledby="gallery-heading">
                   <ul
                     role="list"

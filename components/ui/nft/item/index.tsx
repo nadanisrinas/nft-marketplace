@@ -2,9 +2,6 @@
 
 import { FunctionComponent } from "react";
 import { Nft } from "../../../../types/nft";
-import imgDefaultUser from "./default_avatar.png";
-import imgSmallEth from "./smal-eth.png";
-import Image from "next/image";
 
 type NftItemProps = {
   item: Nft;
@@ -30,12 +27,10 @@ const NftItem: FunctionComponent<NftItemProps> = ({ item, buyNft }) => {
           <div className="flex justify-between items-center">
             <div className="flex items-center mt-2">
               <div>
-                <Image
+                <img
                   className="inline-block h-9 w-9 rounded-full"
-                  src={imgDefaultUser}
+                  src="/images/default_avatar.png"
                   alt=""
-                  width={50}
-                  height={50}
                 />
               </div>
               <div className="ml-3">
@@ -67,11 +62,9 @@ const NftItem: FunctionComponent<NftItemProps> = ({ item, buyNft }) => {
               <dd className="order-1 text-xl font-extrabold text-indigo-600">
                 <div className="flex justify-center items-center">
                   {item.price}
-                  <Image
-                    width={20}
-                    height={20}
+                  <img
                     className="h-6"
-                    src={imgSmallEth}
+                    src="/images/smal-eth.png"
                     alt="ether icon"
                   />
                 </div>

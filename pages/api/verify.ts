@@ -33,7 +33,6 @@ export default withSession(async (req: NextApiRequest & {session: Session}, res:
 
       return res.status(200).send(jsonRes.data);
     } catch(e) {
-      console.log("d?yesireadtherules", e)
       return res.status(422).send({message: "Cannot create JSON"});
     } 
   } else if (req.method === "GET") {
@@ -41,7 +40,6 @@ export default withSession(async (req: NextApiRequest & {session: Session}, res:
       const message = { contractAddress, id: uuidv4() };
       req.session.set("message-session", message);
       await req.session.save();
-      console.log(req.session.get("message-session"))
       return res.json(message);
     } catch {
       return res.status(422).send({message: "Cannot generate a message!"});
