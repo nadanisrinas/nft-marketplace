@@ -23,10 +23,6 @@ export declare type EventFilter = {
 
 export interface ContractTransactionOverrides {
   /**
-   * The maximum units of gas for the transaction to use
-   */
-  gasLimit?: number;
-  /**
    * The price (in wei) per unit of gas
    */
   gasPrice?: BigNumber | string | number | Promise<any>;
@@ -49,10 +45,6 @@ export interface ContractCallOverrides {
    * The address to execute the call as
    */
   from?: string;
-  /**
-   * The maximum units of gas for the transaction to use
-   */
-  gasLimit?: number;
 }
 export type NftMarketContractEvents =
   | 'Approval'

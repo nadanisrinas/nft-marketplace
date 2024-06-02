@@ -2,7 +2,7 @@
 const NftMarket = artifacts.require("NftMarket");
 const { ethers } = require("ethers");
 
-contract("NftMarket", accounts => {
+contract("NftMarket", (accounts) => {
   let _contract = null;
   let _nftPrice = ethers.utils.parseEther("0.3").toString();
   let _listingPrice = ethers.utils.parseEther("0.025").toString();

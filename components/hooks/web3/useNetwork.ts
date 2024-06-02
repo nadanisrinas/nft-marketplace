@@ -10,6 +10,7 @@ const NETWORKS: {[k: string]: string} = {
   42: "Kovan Test Network",
   56: "Binance Smart Chain",
   1337: "Ganache",
+  11155111: "Sepolia Test Network"
 }
 
 const targetId = process.env.NEXT_PUBLIC_TARGET_CHAIN_ID as string;
@@ -36,13 +37,17 @@ export const hookFactory: NetworkHookFactory = ({provider, isLoading}) => () => 
         throw "Cannot retreive network. Please, refresh browser or connect to other one."
       }
 
+
       return NETWORKS[chainId];
     }, {
       revalidateOnFocus: false
     }
   )
-
+  
+  
   const isSupported = data === targetNetwork;
+  
+
 
   return {
     ...swr,

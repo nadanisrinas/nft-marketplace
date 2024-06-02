@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { Menu } from "@headlessui/react";
+import Image from "next/image";
 import Link from "next/link";
 import { FunctionComponent } from "react";
 
@@ -42,10 +43,10 @@ const Walletbar: FunctionComponent<WalletbarProps> = ({
         <div>
           <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
             <span className="sr-only">Open user menu</span>
-            <img
+            <Image
               className="h-8 w-8 rounded-full"
-              src="/images/default_user_image.png"
-              alt=""
+              src="./default_user_image.png"
+              alt="default_user_image"
             />
           </Menu.Button>
         </div>
